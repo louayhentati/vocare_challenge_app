@@ -1,103 +1,127 @@
-import Image from "next/image";
+
+'use client';
+
+import Link from "next/link";
+import {FaFacebookF, FaInstagram, FaLinkedin, FaTiktok} from "react-icons/fa";
+import {FaXTwitter} from "react-icons/fa6";
+import HeaderWithMaskedNav from './HeaderWithMaskedNav';
+import { motion } from 'framer-motion';
+import { Sparkles } from 'lucide-react';
+import { cn } from '@/my-app/lib/utils';
+import React from "react";
+
+/**
+ * Home – Startseite der VoCare Kalender App.
+ *
+ * 🚀 Funktionalität:
+ * - Zeigt eine großflächige, visuell ansprechende Willkommensseite mit Hintergrundbild
+ * - Animierte Glitzereffekte (Sparkles) und ein leuchtender 3D-Text mit Framer Motion
+ * - Übersichtliche Navigation über große Buttons zu den wichtigsten Unterseiten (Termine, Kategorien, Patienten)
+ * - Social-Media-Icons im Footer mit Links zu Instagram, Facebook, Twitter (X), TikTok und LinkedIn
+ *
+ * 🎨 Design & UX:
+ * - Responsive Layout mit flexbox und TailwindCSS
+ * - Farbverlaufshintergrund und transparent-schwarzer Overlay für gute Lesbarkeit
+ * - Animationen verbessern das Nutzererlebnis und wirken modern & dynamisch
+ * - Buttons mit Hover-Effekten und sanften Skalierungen für Interaktivität
+ *
+ * 📌 Hinweise:
+ * - 'use client' sorgt für clientseitiges Rendering und Interaktivität
+ * - Link zu "/relatives" ist vorbereitet, aber aktuell auskommentiert, da diese Funktionalität evtl. noch nicht fertig oder Daten fehlen
+ * - Die Komponente nutzt diverse externe Icons (react-icons und lucide-react)
+ * - Utility-Funktion 'cn' wird für zusammengesetzte Tailwind-Klassen verwendet
+ * - Footer bietet schnelle Links zu Social Media Plattformen für erhöhte Sichtbarkeit
+ */
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    return (
+        <main
+            className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-blue-50 to-green-50 font-sans text-gray-800">
+            <HeaderWithMaskedNav/>
+            {/* Menu Section */}
+            <section className="w-full h-screen bg-cover bg-center"
+                     style={{backgroundImage: "url('https://i.pinimg.com/736x/23/03/44/23034473f6e9a7269dfb92b548198394.jpg')"}}>
+                <div className="flex flex-col items-center justify-center h-full gap-8 bg-black/50">
+                    <h2 className="mb-20"></h2>
+                    <section className="relative bg-transparent text-white py-24 overflow-visible">
+                        {/* Sparkles animation icon */}
+                        <motion.div
+                            className="absolute top-10 left-10 text-blue-500 opacity-30"
+                            initial={{scale: 0}}
+                            animate={{scale: [1, 1.5, 1], rotate: [0, 20, -20, 0]}}
+                            transition={{duration: 3, repeat: Infinity}}
+                        >
+                            <Sparkles className="w-10 h-10"/>
+                        </motion.div>
+
+                        {/* Glowing, 3D Text */}
+                        <motion.h1
+                            initial={{opacity: 0, y: 60}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 1}}
+                            className={cn(
+                                "text-center text-4xl md:text-6xl font-extrabold uppercase tracking-wide",
+                                "bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-500",
+                                "text-transparent bg-clip-text drop-shadow-[0_5px_10px_rgba(0,255,255,0.6)]",
+                                "animate-glow-text"
+                            )}
+                        >
+                            Willkommen beim VoCare Kalender
+                        </motion.h1>
+
+                        {/* Subline */}
+                        <motion.p
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{delay: 0.3, duration: 1}}
+                            className="text-center mt-6 text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto"
+                        >
+                            Intelligente Pflegeplanung .
+                            <span className="text-blue-400 font-semibold"> Digital . Einfach . Echt . </span>
+                        </motion.p>
+                    </section>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <Link href="/appointments"
+                              className="px-6 py-3 text-3xl font-bold  bg-white border border-gray-300 rounded-xl shadow hover:scale-105 hover:bg-blue-100 transition-all duration-300">
+                            Termin
+                        </Link>
+                        <Link href="/categories"
+                              className="px-6 py-3 text-3xl font-bold bg-white border border-gray-300 rounded-xl shadow hover:scale-105 hover:bg-blue-100 transition-all duration-300">
+                            Kategorien
+                        </Link>
+                        <Link href="/patients"
+                              className="px-6 py-3 text-3xl font-bold bg-white border border-gray-300 rounded-xl shadow hover:scale-105 hover:bg-blue-100 transition-all duration-300">
+                            Patient
+                        </Link>
+                        {/* das ist für relatives falles funktioniert
+                        <Link href="/relatives"
+                              className="px-6 py-3 text-3xl font-bold bg-white border border-gray-300 rounded-xl shadow hover:scale-105 hover:bg-blue-100 transition-all duration-300">
+                            Relatives
+                        </Link> */ }
+                    </div>
+                </div>
+            </section>
+
+
+            {/* Footer */}
+            <footer className="bg-white shadow-inner p-4 mt-auto">
+                <div className="flex justify-center gap-6 text-blue-600">
+                    <Link href="https://instagram.com" target="_blank"><FaInstagram
+                        className="w-6 h-6 hover:text-pink-500 transition"/></Link>
+                    <Link href="https://facebook.com" target="_blank"><FaFacebookF
+                        className="w-6 h-6 hover:text-blue-700 transition"/></Link>
+                    <Link href="https://twitter.com" target="_blank"><FaXTwitter
+                        className="w-6 h-6 hover:text-black transition"/></Link>
+                    <Link href="https://tiktok.com" target="_blank"><FaTiktok
+                        className="w-6 h-6 hover:text-black transition"/></Link>
+                    <Link href="https://Linkedin.com" target="_blank"><FaLinkedin
+                        className="w-6 h-6 hover:text-black transition"/></Link>
+                </div>
+            </footer>
+        </main>
+    );
 }
+
+
